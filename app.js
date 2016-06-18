@@ -20,7 +20,7 @@ db.once('open', function() {
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dishRouter = require('./routes/dishesRouter');
-
+var favoriteRouter = require('./routes/favoritesRouter');
 
 var app = express();
 //redirect all of requests to https server
@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dishes', dishRouter);
-
+app.use('/favorites', favoriteRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
